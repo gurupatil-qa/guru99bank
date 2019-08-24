@@ -1,0 +1,88 @@
+18:23:41.395 [main] INFO  com.guru99bank.web.LoginPageTest - Browser initialized
+18:23:41.525 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+18:23:41.593 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+18:23:43.636 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+18:23:43.727 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified Login for valid user/password
+18:23:49.757 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+18:23:49.821 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+18:23:50.632 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+18:23:50.636 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+18:23:52.608 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+18:23:52.655 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+18:23:53.561 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+18:23:53.566 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+18:23:55.379 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+18:23:55.447 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+18:23:56.449 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+18:23:56.453 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+18:23:57.118 [main] INFO  resources.base - Browser instance closed
+18:24:05.267 [main] INFO  resources.base - /nBrowser initialized
+18:24:05.362 [main] INFO  resources.base - UserID entered
+18:24:05.441 [main] INFO  resources.base - Password entered
+18:24:07.446 [main] INFO  resources.base - Clicked on login button
+18:24:09.555 [main] INFO  com.guru99bank.web.ChangePasswordPageTest - Test Passed :: Verified incorrect password
+18:24:16.957 [main] INFO  resources.base - /nBrowser initialized
+18:24:17.080 [main] INFO  resources.base - UserID entered
+18:24:17.153 [main] INFO  resources.base - Password entered
+18:24:19.952 [main] INFO  resources.base - Clicked on login button
+18:24:23.969 [main] INFO  com.guru99bank.web.AddCustomerPageTest - Test Passed :: Customer ID 28645
+18:24:23.969 [main] INFO  com.guru99bank.web.AddCustomerPageTest - Test Passed :: Customer Registered Successfully
+18:24:24.205 [main] INFO  com.guru99bank.web.AddCustomerPageTest - Test Passed :: Customer Details Verified Successfully
+18:24:24.864 [main] INFO  resources.base - Browser instance closed
+18:24:32.548 [main] INFO  resources.base - /nBrowser initialized
+18:24:32.643 [main] INFO  resources.base - UserID entered
+18:24:32.722 [main] INFO  resources.base - Password entered
+18:24:34.475 [main] INFO  resources.base - Clicked on login button
+18:24:40.506 [main] INFO  com.guru99bank.web.AddAccountPageTest - Test Passed :: Account ID 66931
+18:24:40.506 [main] INFO  com.guru99bank.web.AddAccountPageTest - Test Passed :: Account Generated Successfully
+18:24:41.154 [main] INFO  resources.base - Browser instance closed
+18:24:48.077 [main] INFO  resources.base - /nBrowser initialized
+18:24:48.216 [main] INFO  resources.base - UserID entered
+18:24:48.285 [main] INFO  resources.base - Password entered
+18:24:51.059 [main] INFO  resources.base - Clicked on login button
+18:24:55.490 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Delete this account pop is shown
+18:24:57.310 [main] INFO  resources.base - Browser instance closed
+18:28:40.314 [main] INFO  resources.base - /nBrowser initialized
+18:28:40.438 [main] INFO  resources.base - UserID entered
+18:28:40.520 [main] INFO  resources.base - Password entered
+18:28:42.327 [main] INFO  resources.base - Clicked on login button
+18:28:46.015 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Delete this account pop is shown
+18:28:47.036 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Account Deleted Sucessfully
+
+
+18:38:05.387 [main] INFO  resources.base - ------------------------------------------------------------------------------------
+18:38:05.390 [main] INFO  resources.base - Browser initialized
+18:38:05.488 [main] INFO  resources.base - UserID entered
+18:38:05.561 [main] INFO  resources.base - Password entered
+18:38:07.853 [main] INFO  resources.base - Clicked on login button
+18:38:10.114 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Delete this account pop is shown
+18:38:11.150 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Account Deleted Sucessfully
+18:43:26.364 [main] INFO  resources.base - ------------------------------------------------------------------------------------
+18:43:26.367 [main] INFO  resources.base - Browser initialized
+18:43:26.503 [main] INFO  resources.base - UserID entered
+18:43:26.598 [main] INFO  resources.base - Password entered
+18:43:28.683 [main] INFO  resources.base - Clicked on login button
+18:45:11.925 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Delete this account pop is shown
+18:54:26.377 [main] INFO  resources.base - ------------------------------------------------------------------------------------
+18:54:26.390 [main] INFO  resources.base - Browser initialized
+18:54:26.500 [main] INFO  resources.base - UserID entered
+18:54:26.572 [main] INFO  resources.base - Password entered
+18:54:29.040 [main] INFO  resources.base - Clicked on login button
+18:54:44.892 [main] INFO  resources.base - Browser instance closed
+18:55:09.424 [main] INFO  resources.base - ------------------------------------------------------------------------------------
+18:55:09.426 [main] INFO  resources.base - Browser initialized
+18:55:09.533 [main] INFO  resources.base - UserID entered
+18:55:09.616 [main] INFO  resources.base - Password entered
+18:55:12.676 [main] INFO  resources.base - Clicked on login button
+18:55:22.040 [main] INFO  com.guru99bank.web.AddAccountPageTest - Test Passed :: Account ID 66932
+18:55:22.041 [main] INFO  com.guru99bank.web.AddAccountPageTest - Test Passed :: Account Generated Successfully
+18:55:22.699 [main] INFO  resources.base - Browser instance closed
+19:06:34.397 [main] INFO  resources.base - ------------------------------------------------------------------------------------
+19:06:34.407 [main] INFO  resources.base - Browser initialized
+19:06:34.849 [main] INFO  resources.base - UserID entered
+19:06:34.936 [main] INFO  resources.base - Password entered
+19:06:36.833 [main] INFO  resources.base - Clicked on login button
+19:07:19.433 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Navigated to Delete Account Page
+19:07:25.181 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Delete this account pop is shown
+19:07:48.800 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Navigated to Delete Account Page
+19:08:11.743 [main] INFO  com.guru99bank.web.DeleteAccountPageTest - Test Passed : Account Deleted Sucessfully
