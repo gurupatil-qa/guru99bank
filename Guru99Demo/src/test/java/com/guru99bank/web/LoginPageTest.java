@@ -16,7 +16,7 @@ import org.testng.annotations.Test;
 import resources.base;
 
 public class LoginPageTest {
-
+//Login Page Test
 	public static WebDriver driver;
 	public static LoginPage loginPage;
 	public static Logger log = LogManager.getLogger(LoginPageTest.class);
