@@ -7,13 +7,13 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import resources.ExcelUtils;
 import resources.base;
 
 public class LoginPageTest {
@@ -70,7 +70,7 @@ public class LoginPageTest {
 				driver.get(base.prop.getProperty("baseurl"));
 
 			} else {
-				
+
 				log.error("Test Failed :: Verified Login for Vaild user/password");
 			}
 
@@ -81,11 +81,11 @@ public class LoginPageTest {
 	@DataProvider
 	public Object[][] getData() throws IOException {
 
-//		String[][] data = ExcelUtils.readExcel(prop.getProperty("excelPath"), prop.getProperty("excelName"),
-//				prop.getProperty("SheetName"));
-		
-		Object[][] data= {{"mngr212524","@1234567"},{"abc","ubAtYrE"},{"mngr212524","abc"},{"abc","abc"}};
-		
+		Object[][] data = ExcelUtils.readExcel(0);
+
+		// Object[][] data=
+		// {{"mngr212524","@1234567"},{"abc","ubAtYrE"},{"mngr212524","abc"},{"abc","abc"}};
+
 		return data;
 
 	}

@@ -8,6 +8,9 @@
 	<version>1.0-SNAPSHOT</version>
 	<name>Guru99Demo</name>
 	<url>http://maven.apache.org</url>
+	<profiles>
+	<profile>
+	<id>Regression</id>
 	<build>
 		<resources>
 			<resource>
@@ -24,13 +27,41 @@
 					<configuration>
 					<forkCount>0</forkCount>
 						<suiteXmlFiles>
-							<suiteXmlFile>testng.xml</suiteXmlFile>
+							<suiteXmlFile>regression.xml</suiteXmlFile>
 						</suiteXmlFiles>
 					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
+	</profile>
+	<profile>
+	<id>Smoke</id>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/java/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>3.0.0-M3</version>
+					<configuration>
+					<forkCount>0</forkCount>
+						<suiteXmlFiles>
+							<suiteXmlFile>smoke.xml</suiteXmlFile>
+						</suiteXmlFiles>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+	</profile>
+	</profiles>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>

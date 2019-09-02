@@ -16,12 +16,25 @@ public class ExcelUtils {
 	public static Sheet wSheet = null;
 	public static DataFormatter dataFormatter = new DataFormatter();
 
-	public static String[][] readExcel(String path, String fileName, String sheetName) throws IOException {
+	public static void main(String[] args) {
 
-		String[][] userArray = null;
-		FileInputStream fis = new FileInputStream(path + fileName);
+		try {
+			readExcel(1);
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
+
+	}
+
+	public static Object[][] readExcel(int sheetIndex) throws IOException {
+
+		Object[][] userArray = null; //Array Declaration
 		Workbook myworkbook = null;
-		String fileExtension = fileName.substring(fileName.indexOf("."));
+		String filepath = ".\\testdata\\demodata.xlsx";
+		FileInputStream fis = new FileInputStream(filepath);
+		String fileExtension = filepath.substring(filepath.indexOf(".", 2));// Get File extension
 
 		if (fileExtension.equals(".xlsx")) {
 
@@ -33,30 +46,36 @@ public class ExcelUtils {
 
 		}
 
-		wSheet = myworkbook.getSheet(sheetName);
+		wSheet = myworkbook.getSheetAt(sheetIndex);
 
-		int rowCount = wSheet.getLastRowNum();
+		int rowCount = wSheet.getLastRowNum(); // Row count starts from 0th index, if 5 rows then return 4 rows
+
+		System.out.println(rowCount);
 
 		int ci = 0;
-		
-		
-		
-		Row row = wSheet.getRow(0);
-		
-		int colCount = row.getLastCellNum();
-		
-		userArray = new String[rowCount][colCount-1];
-		
-		for (int i = 1; i < rowCount+1; i++) {
+
+		Row row = wSheet.getRow(0); // Get first row
+
+		int colCount = row.getLastCellNum(); // Get first row cell/column count, count starts from 1st index, if 3 cells
+												// then return 3 cells
+
+		System.out.println(colCount);
+
+		userArray = new String[rowCount][colCount - 1]; // Instantiating/initializing array
+
+		for (int i = 1; i <= rowCount; i++) {
 
 			row = wSheet.getRow(i);
-			
+
 			int cj = 0;
 
 			for (int j = 1; j < colCount; j++) {
 
-				userArray[ci][cj] = getCellData(i, j);
-
+				if(getCellData(i, j) != null && getCellData(i, j).length() !=0)//Check for NULL values
+				{
+				userArray[ci][cj] = getCellData(i, j); // Add excel data in array
+				System.out.println(userArray[ci][cj]);
+				}
 				cj++;
 			}
 

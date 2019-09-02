@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	<listeners>
+		<listener class-name="resources.Listeners" />
+	</listeners>
+	<test name="Regression">
+		<classes>
+			<class name="com.guru99bank.web.LoginPageTest" />
+			<class name="com.guru99bank.web.ChangePasswordPageTest" />
+			<class name="com.guru99bank.web.AddCustomerPageTest"/>
+			<class name="com.guru99bank.web.AddAccountPageTest"/>
+			<class name="com.guru99bank.web.DeleteAccountPageTest"/>
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

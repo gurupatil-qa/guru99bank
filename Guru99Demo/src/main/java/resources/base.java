@@ -35,21 +35,20 @@ public class base {
 
 	public static WebDriver initializeDriver() throws IOException {
 		prop = new Properties();
-		FileInputStream fis = new FileInputStream(
-				"src\\main\\java\\resources\\globaldata.properties");
+		FileInputStream fis = new FileInputStream(".\\globalconfig\\globaldata.properties");
 
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
 		if (browserName.equals("chrome")) {
-			System.setProperty("webdriver.chrome.driver", prop.getProperty("browserExe"));
+			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
 
 		} else if (browserName.equals("firefox")) {
-			System.setProperty("webdriver.gecko.driver", prop.getProperty("browserExe"));
+			System.setProperty("webdriver.gecko.driver", ".\\drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
 
 		} else if (browserName.equals("edge")) {
-			System.setProperty("webdriver.edge.driver", prop.getProperty("browserExe"));
+			System.setProperty("webdriver.edge.driver", ".\\drivers\\MicrosoftWebDriver.exe");
 			driver = new EdgeDriver();
 
 		}
@@ -88,7 +87,7 @@ public class base {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		File dst = new File(
-				prop.getProperty("screenshotPath") + result + "_" + current.format(format) + "_screenshot.png");
+				".\\screenshots\\" + result + "_" + current.format(format) + "_screenshot.png");
 		FileUtils.copyFile(src, dst);
 	}
 
@@ -97,9 +96,8 @@ public class base {
 		sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(calender.getTime());
 	}
-	
-	public static Alert getAlert()
-	{
+
+	public static Alert getAlert() {
 		Alert Alert = driver.switchTo().alert();
 		return Alert;
 	}

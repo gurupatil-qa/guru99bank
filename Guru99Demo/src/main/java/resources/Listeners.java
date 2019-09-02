@@ -12,7 +12,6 @@ public class Listeners implements ITestListener {
 	Logger log = LogManager.getLogger(Listeners.class);
 
 	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
 
 	}
 
@@ -42,22 +41,18 @@ public class Listeners implements ITestListener {
 	}
 
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
 
 	}
 
 	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
 
 	}
 
