@@ -7,6 +7,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -78,12 +79,12 @@ public class LoginPageTest {
 	}
 
 	@DataProvider
-	public String[][] getData() throws IOException {
+	public Object[][] getData() throws IOException {
 
 //		String[][] data = ExcelUtils.readExcel(prop.getProperty("excelPath"), prop.getProperty("excelName"),
 //				prop.getProperty("SheetName"));
 		
-		String[][] data= {{"mngr212524","@1234567"},{"abc","ubAtYrE"},{"mngr212524","abc"},{"abc","abc"}};
+		Object[][] data= {{"mngr212524","@1234567"},{"abc","ubAtYrE"},{"mngr212524","abc"},{"abc","abc"}};
 		
 		return data;
 
