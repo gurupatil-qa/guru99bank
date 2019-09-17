@@ -6,44 +6,55 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-	
+
 	public WebDriver driver;
-	
-	public LoginPage(WebDriver driver)
-	{
-		this.driver=driver;
+
+	public LoginPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(name="uid")
+
+	@FindBy(name = "uid")
 	WebElement userId;
-	
-	@FindBy(name="password")
-	WebElement password;
-	
-	@FindBy(name="btnLogin")
-	WebElement login;
-	
-	@FindBy(linkText="Log out")
-	WebElement logOut;
-	
-	public WebElement userID()
-	{
+
+	public WebElement userID() {
 		return userId;
 	}
-	
-	public WebElement password()
-	{
+
+	@FindBy(name = "password")
+	WebElement password;
+
+	public WebElement password() {
 		return password;
 	}
-	
-	public WebElement loginBtn()
-	{
+
+	@FindBy(name = "btnLogin")
+	WebElement login;
+
+	public WebElement loginBtn() {
 		return login;
 	}
-	
-	public WebElement logoutLink()
-	{
-		return logOut;
+
+	@FindBy(id = "message23")
+	WebElement userMsg;
+
+	public String getUserMsg() {
+		return userMsg.getText();
 	}
+
+	@FindBy(id = "message18")
+	WebElement pwdMsg;
+
+	public String getPasswordMsg() {
+		return pwdMsg.getText();
+	}
+
+	@FindBy(name = "btnReset")
+	WebElement restBtn;
+	
+	public WebElement resetBtn()
+	{
+		return restBtn;
+	}
+
 }

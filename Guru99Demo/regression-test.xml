@@ -3,6 +3,7 @@
 <suite name="Suite">
 	<listeners>
 		<listener class-name="resources.Listeners" />
+		<listener class-name="resources.RetryAnalyzer" />
 	</listeners>
 	<test name="Regression">
 		<classes>

@@ -8,7 +8,8 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class Listeners implements ITestListener {
+public class Listeners extends base implements ITestListener {
+	
 	Logger log = LogManager.getLogger(Listeners.class);
 
 	public void onTestStart(ITestResult result) {
@@ -16,14 +17,7 @@ public class Listeners implements ITestListener {
 	}
 
 	public void onTestSuccess(ITestResult result) {
-//		try {
-//
-//			base.getScreenshot(result.getName());
-//
-//		} catch (IOException e) {
-//
-//			log.error(e.toString());
-//		}
+
 
 	}
 
@@ -31,7 +25,7 @@ public class Listeners implements ITestListener {
 
 		try {
 
-			base.getScreenshot(result.getName());
+			getScreenshot(result.getName());
 
 		} catch (IOException e) {
 

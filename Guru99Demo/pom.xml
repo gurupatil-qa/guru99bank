@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.guru99bank.web</groupId>
@@ -9,58 +8,58 @@
 	<name>Guru99Demo</name>
 	<url>http://maven.apache.org</url>
 	<profiles>
-	<profile>
-	<id>Regression</id>
-	<build>
-		<resources>
-			<resource>
-				<directory>src/main/java/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.0.0-M3</version>
-					<configuration>
-					<forkCount>0</forkCount>
-						<suiteXmlFiles>
-							<suiteXmlFile>regression.xml</suiteXmlFile>
-						</suiteXmlFiles>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-	</profile>
-	<profile>
-	<id>Smoke</id>
-	<build>
-		<resources>
-			<resource>
-				<directory>src/main/java/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-surefire-plugin</artifactId>
-					<version>3.0.0-M3</version>
-					<configuration>
-					<forkCount>0</forkCount>
-						<suiteXmlFiles>
-							<suiteXmlFile>smoke.xml</suiteXmlFile>
-						</suiteXmlFiles>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-	</profile>
+		<profile>
+			<id>Regression</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/java/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M3</version>
+							<configuration>
+								<forkCount>0</forkCount>
+								<suiteXmlFiles>
+									<suiteXmlFile>regression-test.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+		<profile>
+			<id>Smoke</id>
+			<build>
+				<resources>
+					<resource>
+						<directory>src/main/java/resources</directory>
+						<filtering>true</filtering>
+					</resource>
+				</resources>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<groupId>org.apache.maven.plugins</groupId>
+							<artifactId>maven-surefire-plugin</artifactId>
+							<version>3.0.0-M3</version>
+							<configuration>
+								<forkCount>0</forkCount>
+								<suiteXmlFiles>
+									<suiteXmlFile>smoke-test.xml</suiteXmlFile>
+								</suiteXmlFiles>
+							</configuration>
+						</plugin>
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
 	</profiles>
 	<dependencies>
 		<dependency>
@@ -97,6 +96,11 @@
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
 			<version>4.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>htmlunit-driver</artifactId>
+			<version>2.36.0</version>
 		</dependency>
 	</dependencies>
 </project>

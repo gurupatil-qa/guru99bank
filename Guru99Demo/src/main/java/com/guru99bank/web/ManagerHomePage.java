@@ -50,6 +50,13 @@ public class ManagerHomePage {
 	@CacheLookup
 	WebElement deleteAccount;
 
+	@FindBy(linkText = "Log out")
+	WebElement logOut;
+
+	public WebElement logoutLink() {
+		return logOut;
+	}
+	
 	public WebElement deleteAccountLink() {
 		return deleteAccount;
 	}

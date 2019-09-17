@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -20,25 +21,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
 import org.testng.Reporter;
 
+import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.guru99bank.web.LoginPage;
 
 public class base {
 
-	public static WebDriver driver;
-	public static Properties prop;
-	public static LoginPage loginPage;
-	public static Logger log = LogManager.getLogger(base.class);
-	public static Calendar calender;
-	public static SimpleDateFormat sdf;
+	public WebDriver driver;
+	public Properties prop;
+	public LoginPage loginPage;
+	public Logger log = LogManager.getLogger(base.class);
+	public Calendar calender;
+	public SimpleDateFormat sdf;
 
-	public static WebDriver initializeDriver() throws IOException {
+	public WebDriver initializeDriver() throws IOException {
 		prop = new Properties();
 		FileInputStream fis = new FileInputStream(".\\globalconfig\\globaldata.properties");
 
 		prop.load(fis);
 		String browserName = prop.getProperty("browser");
+
 		if (browserName.equals("chrome")) {
 			System.setProperty("webdriver.chrome.driver", ".\\drivers\\chromedriver.exe");
 			driver = new ChromeDriver();
@@ -51,6 +58,17 @@ public class base {
 			System.setProperty("webdriver.edge.driver", ".\\drivers\\MicrosoftWebDriver.exe");
 			driver = new EdgeDriver();
 
+		} else if (browserName.equals("safari")) {
+
+			//
+
+		} else if (browserName.equals("headless")) {
+			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
+			
+		} else {
+
+			log.error("Please provide valid browser name (chrome | firefox | edge | safari | headless)");
+			System.out.println("Please provide valid browser name (chrome | firefox | edge | safari | headless)");
 		}
 
 		driver.manage().window().maximize();
@@ -59,7 +77,7 @@ public class base {
 		return driver;
 	}
 
-	public static WebDriver setup() throws IOException {
+	public WebDriver setup() throws IOException {
 		driver = initializeDriver();
 		driver.get(prop.getProperty("baseurl"));
 		log.info("------------------------------------------------------------------------------------");
@@ -76,29 +94,50 @@ public class base {
 		return driver;
 	}
 
-	public static void teardown() {
+	public void teardown() {
 		driver.quit();
 		driver = null;
 		log.info("Browser instance closed");
 	}
 
-	public static void getScreenshot(String result) throws IOException {
-		LocalDateTime current = LocalDateTime.now();
-		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");
+	public void getScreenshot(String result) throws IOException {
+		LocalDateTime current = LocalDateTime.now(); // Get current time
+
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy_HH-mm-ss");// convert to desired format
+
+		// convert driver object to TakesScreenshot and use getScreenshotAs method to
+		// create image
 		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		File dst = new File(
-				".\\screenshots\\" + result + "_" + current.format(format) + "_screenshot.png");
+
+		// Set location to save file
+		File dst = new File(".\\screenshots\\" + result + "_" + current.format(format) + "_screenshot.png");
+
+		// Copy file to desired location
 		FileUtils.copyFile(src, dst);
+
 	}
 
-	public static String getData() {
+	public String getDate() {
 		calender = Calendar.getInstance();
 		sdf = new SimpleDateFormat("yyyy-MM-dd");
 		return sdf.format(calender.getTime());
 	}
 
-	public static Alert getAlert() {
+	public Alert getAlert() {
 		Alert Alert = driver.switchTo().alert();
 		return Alert;
+	}
+
+	public void getConsoleErrors() {
+		LogEntries LogEntries = driver.manage().logs().get(LogType.BROWSER);
+		for (LogEntry entry : LogEntries) {
+			System.out.println(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
+		}
+
+	}
+	
+	public String getTitle()
+	{
+		return driver.getTitle();
 	}
 }

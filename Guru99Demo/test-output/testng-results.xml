@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
   <reporter-output>
     <line>
       <![CDATA[Browser initialized and rediredcted to page successfully]]>
@@ -16,39 +16,35 @@
     <line>
       <![CDATA[Test Passed :: Verified login for invalid user/password]]>
     </line>
+    <line>
+      <![CDATA[Test Passed :: Verified Login for valid user/password]]>
+    </line>
   </reporter-output>
-  <suite name="Default suite" duration-ms="22219" started-at="2019-09-02T10:09:07Z" finished-at="2019-09-02T10:09:29Z">
+  <suite name="Default suite" duration-ms="30990" started-at="2019-09-17T18:54:47Z" finished-at="2019-09-17T18:55:18Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="22219" started-at="2019-09-02T10:09:07Z" finished-at="2019-09-02T10:09:29Z">
+    <test name="Default test" duration-ms="30990" started-at="2019-09-17T18:54:47Z" finished-at="2019-09-17T18:55:18Z">
       <class name="com.guru99bank.web.LoginPageTest">
-        <test-method status="PASS" signature="Launch()[pri:0, instance:com.guru99bank.web.LoginPageTest@747ddf94]" name="Launch" is-config="true" duration-ms="8733" started-at="2019-09-02T10:09:07Z" finished-at="2019-09-02T10:09:16Z">
+        <test-method status="PASS" signature="Launch()[pri:0, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="Launch" is-config="true" duration-ms="8949" started-at="2019-09-17T18:54:47Z" finished-at="2019-09-17T18:54:56Z">
           <reporter-output>
             <line>
               <![CDATA[Browser initialized and rediredcted to page successfully]]>
             </line>
           </reporter-output>
         </test-method> <!-- Launch -->
-        <test-method status="PASS" signature="verifyLogin(java.lang.String, java.lang.String)[pri:0, instance:com.guru99bank.web.LoginPageTest@747ddf94]" name="verifyLogin" duration-ms="838" started-at="2019-09-02T10:09:16Z" data-provider="getData" finished-at="2019-09-02T10:09:17Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[mngr212524]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[ubAtYrE]]>
-              </value>
-            </param>
-          </params>
+        <test-method status="PASS" signature="validateUserIDRequiredMessage()[pri:1, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="validateUserIDRequiredMessage" duration-ms="147" started-at="2019-09-17T18:54:56Z" finished-at="2019-09-17T18:54:56Z">
           <reporter-output>
-            <line>
-              <![CDATA[Test Passed :: Verified login for invalid user/password]]>
-            </line>
           </reporter-output>
-        </test-method> <!-- verifyLogin -->
-        <test-method status="PASS" signature="verifyLogin(java.lang.String, java.lang.String)[pri:0, instance:com.guru99bank.web.LoginPageTest@747ddf94]" name="verifyLogin" duration-ms="3219" started-at="2019-09-02T10:09:17Z" data-provider="getData" finished-at="2019-09-02T10:09:20Z">
+        </test-method> <!-- validateUserIDRequiredMessage -->
+        <test-method status="PASS" signature="validatePasswordRequiredMessage()[pri:2, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="validatePasswordRequiredMessage" duration-ms="111" started-at="2019-09-17T18:54:56Z" finished-at="2019-09-17T18:54:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validatePasswordRequiredMessage -->
+        <test-method status="PASS" signature="validateResetBtn()[pri:3, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="validateResetBtn" duration-ms="435" started-at="2019-09-17T18:54:56Z" finished-at="2019-09-17T18:54:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validateResetBtn -->
+        <test-method status="PASS" signature="verifyInvalidLogin(java.lang.String, java.lang.String)[pri:4, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifyInvalidLogin" duration-ms="821" started-at="2019-09-17T18:54:57Z" data-provider="getData" finished-at="2019-09-17T18:54:58Z">
           <params>
             <param index="0">
               <value>
@@ -66,8 +62,8 @@
               <![CDATA[Test Passed :: Verified login for invalid user/password]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verifyLogin -->
-        <test-method status="PASS" signature="verifyLogin(java.lang.String, java.lang.String)[pri:0, instance:com.guru99bank.web.LoginPageTest@747ddf94]" name="verifyLogin" duration-ms="3512" started-at="2019-09-02T10:09:20Z" data-provider="getData" finished-at="2019-09-02T10:09:24Z">
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method status="PASS" signature="verifyInvalidLogin(java.lang.String, java.lang.String)[pri:4, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifyInvalidLogin" duration-ms="3478" started-at="2019-09-17T18:54:58Z" data-provider="getData" finished-at="2019-09-17T18:55:01Z">
           <params>
             <param index="0">
               <value>
@@ -85,8 +81,8 @@
               <![CDATA[Test Passed :: Verified login for invalid user/password]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verifyLogin -->
-        <test-method status="PASS" signature="verifyLogin(java.lang.String, java.lang.String)[pri:0, instance:com.guru99bank.web.LoginPageTest@747ddf94]" name="verifyLogin" duration-ms="4610" started-at="2019-09-02T10:09:24Z" data-provider="getData" finished-at="2019-09-02T10:09:28Z">
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method status="PASS" signature="verifyInvalidLogin(java.lang.String, java.lang.String)[pri:4, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifyInvalidLogin" duration-ms="3075" started-at="2019-09-17T18:55:01Z" data-provider="getData" finished-at="2019-09-17T18:55:05Z">
           <params>
             <param index="0">
               <value>
@@ -104,8 +100,42 @@
               <![CDATA[Test Passed :: Verified login for invalid user/password]]>
             </line>
           </reporter-output>
-        </test-method> <!-- verifyLogin -->
-        <test-method status="PASS" signature="dismental()[pri:0, instance:com.guru99bank.web.LoginPageTest@747ddf94]" name="dismental" is-config="true" duration-ms="741" started-at="2019-09-02T10:09:28Z" finished-at="2019-09-02T10:09:29Z">
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method status="PASS" signature="verifyInvalidLogin(java.lang.String, java.lang.String)[pri:4, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifyInvalidLogin" duration-ms="2797" started-at="2019-09-17T18:55:05Z" data-provider="getData" finished-at="2019-09-17T18:55:07Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[$$$$]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[$$$$]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[Test Passed :: Verified login for invalid user/password]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidLogin -->
+        <test-method status="PASS" signature="verifNullValueLogin()[pri:5, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifNullValueLogin" duration-ms="2695" started-at="2019-09-17T18:55:07Z" finished-at="2019-09-17T18:55:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifNullValueLogin -->
+        <test-method status="PASS" signature="verifyValidLogin()[pri:6, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifyValidLogin" duration-ms="5156" started-at="2019-09-17T18:55:10Z" finished-at="2019-09-17T18:55:15Z">
+          <reporter-output>
+            <line>
+              <![CDATA[Test Passed :: Verified Login for valid user/password]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- verifyValidLogin -->
+        <test-method status="PASS" signature="verifyLogout()[pri:7, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="verifyLogout" duration-ms="1629" started-at="2019-09-17T18:55:15Z" finished-at="2019-09-17T18:55:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogout -->
+        <test-method status="PASS" signature="dismental()[pri:0, instance:com.guru99bank.web.LoginPageTest@6a78afa0]" name="dismental" is-config="true" duration-ms="741" started-at="2019-09-17T18:55:17Z" finished-at="2019-09-17T18:55:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dismental -->

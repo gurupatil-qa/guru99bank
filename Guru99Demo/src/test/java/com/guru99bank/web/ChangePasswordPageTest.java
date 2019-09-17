@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import resources.base;
 
-public class ChangePasswordPageTest {
+public class ChangePasswordPageTest extends base {
 
 	public static WebDriver driver;
 	public static ChangePasswordPage changesPasswordPage;
@@ -23,7 +23,7 @@ public class ChangePasswordPageTest {
 
 	@BeforeClass
 	public void launch() throws IOException {
-		driver = base.setup();
+		driver = setup();
 	}
 
 	@Test
@@ -88,7 +88,7 @@ public class ChangePasswordPageTest {
 
 	@AfterClass
 	public void dismental() {
-		base.teardown();
+		teardown();
 	}
 
 }

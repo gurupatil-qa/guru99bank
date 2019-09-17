@@ -90,8 +90,8 @@ public class CustomerRegPage {
 		return email;
 	}
 
-	public WebElement successMsg() {
-		return success;
+	public String getSuccessMsg() {
+		return success.getText();
 	}
 
 	public WebElement continueLink() {

@@ -3,15 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.guru99bank.web.DeleteAccountPageTest">
+      <class name="com.guru99bank.web.LoginPageTest">
         <methods>
-          <include name="verifyDeleteAccount"/>
+          <include name="verifyValidLogin"/>
           <include name="dismental"/>
-          <include name="verifyDeleteAccountDoesNotExistPopUp"/>
-          <include name="clickOnDelete"/>
-          <include name="launch"/>
+          <include name="Launch"/>
         </methods>
-      </class> <!-- com.guru99bank.web.DeleteAccountPageTest -->
+      </class> <!-- com.guru99bank.web.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

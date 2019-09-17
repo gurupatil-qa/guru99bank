@@ -12,11 +12,13 @@ import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import resources.ExcelUtils;
 import resources.base;
 
-public class DeleteAccountPageTest {
+public class DeleteAccountPageTest extends base{
 
 	public WebDriver driver;
 	public ManagerHomePage ManagerHomePage;
@@ -26,7 +28,7 @@ public class DeleteAccountPageTest {
 
 	@BeforeClass
 	public void launch() throws IOException {
-		driver = base.setup();
+		driver = setup();
 		ManagerHomePage = new ManagerHomePage(driver);
 		ManagerHomePage.deleteAccountLink().click();
 		DeleteAccountPage = new DeleteAccountPage(driver);
@@ -43,7 +45,7 @@ public class DeleteAccountPageTest {
 	@Test
 	public void verifyDeleteAccountPopUP() {
 		try {
-			alert = base.getAlert();
+			alert = getAlert();
 			String actualMsg = alert.getText();
 			Assert.assertEquals(actualMsg, "Do you really want to delete this Account?");
 			log.info("Test Passed : Delete this account pop is shown");
@@ -62,7 +64,7 @@ public class DeleteAccountPageTest {
 	public void verifyDeleteAccount() {
 		alert.accept();
 		try {
-			alert = base.getAlert();
+			alert = getAlert();
 			String actualMsg = alert.getText();
 			Assert.assertEquals(actualMsg, "Account Deleted Sucessfully");
 			log.info("Test Passed : Account Deleted Sucessfully");
@@ -82,7 +84,7 @@ public class DeleteAccountPageTest {
 	public void verifyDeleteAccountDoesNotExistPopUp() {
 		alert.accept();
 		try {
-			alert = base.getAlert();
+			alert = getAlert();
 			String actualMsg = alert.getText();
 			Assert.assertEquals(actualMsg, "Account does not exist");
 			log.info("Test Passed : Account does not exist pop is shown");
@@ -100,7 +102,7 @@ public class DeleteAccountPageTest {
 	@Test(enabled = false)
 	public void verifyDeleteAccountUnauthorizedPopUp() {
 		try {
-			alert = base.getAlert();
+			alert = getAlert();
 			String actualMsg = alert.getText();
 			Assert.assertEquals(actualMsg, "You are not authorize to delete this Account!!");
 			log.info("Test Passed : Not authorize to delete this account pop is shown");
@@ -113,9 +115,17 @@ public class DeleteAccountPageTest {
 			Reporter.log("Test Passed : " + e.getMessage());
 		}
 	}
+	
+	@DataProvider(name="accountNo")
+	public String getAccountNo() throws IOException
+	{
+		ExcelUtils.getData("Delete");
+		return null;
+		
+	}
 
 	@AfterClass
 	public void dismental() {
-		base.teardown();
+		teardown();
 	}
 }

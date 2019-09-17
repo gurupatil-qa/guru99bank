@@ -39,9 +39,9 @@ public class AccountGeneratedPage {
 	@FindBy(xpath = "//table[@id='account']/tbody/tr[10]/td[2]")
 	WebElement currentAmount;
 	
-	public WebElement accountSuccessMsg()
+	public String getAccountSuccessMsg()
 	{
-		return accountSuccess;
+		return accountSuccess.getText();
 	}
 	
 	public WebElement accountID()

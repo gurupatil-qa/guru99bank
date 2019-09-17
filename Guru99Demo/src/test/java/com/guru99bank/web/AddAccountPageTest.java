@@ -5,15 +5,17 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import resources.ExcelUtils;
 import resources.base;
 
-public class AddAccountPageTest {
+public class AddAccountPageTest extends base {
 
 	public static WebDriver driver;
 	public static ManagerHomePage ManagerHomePage;
@@ -24,7 +26,7 @@ public class AddAccountPageTest {
 
 	@BeforeClass
 	public void launch() throws IOException {
-		driver = base.setup();
+		driver = setup();
 		ManagerHomePage = new ManagerHomePage(driver);
 		ManagerHomePage.newAccountLink().click();
 	}
@@ -33,33 +35,32 @@ public class AddAccountPageTest {
 	public void verifyAddNewAccount(String custid, String actType, String depositAmt) {
 		AddAccountPage = new AddAccountPage(driver);
 		AddAccountPage.customerID().sendKeys(custid);
-		AddAccountPage.accouuntType().selectByValue(actType);
+		try {
+			AddAccountPage.accouuntType().selectByValue(actType);
+		} catch (Exception e) {
+			Reporter.log("Provide valid Account Type...");
+			log.error("Provide valid Account Type...");
+		}
 		AddAccountPage.initialDeposit().sendKeys(depositAmt);
 		AddAccountPage.submitBtn().click();
 
 		AccountGeneratedPage = new AccountGeneratedPage(driver);
-		if (AccountGeneratedPage.accountSuccessMsg().getText().equals("Account Generated Successfully!!!")) {
-			accountID = AccountGeneratedPage.accountID.getText();
-			log.info("Test Passed :: Account ID " + accountID);
-			Reporter.log("Test Passed :: Account ID " + accountID);
-			Reporter.log("Test Passed :: Account Generated Successfully");
-			log.info("Test Passed :: Account Generated Successfully");
-		} else {
-			Reporter.log("Test Failed :: Account Generation failed");
-			log.info("Test Failed :: Account Generation Successfully");
-		}
+		Assert.assertEquals(AccountGeneratedPage.getAccountSuccessMsg(), "Account Generated Successfully!!!");
+
 	}
 
 	@DataProvider
-	public static String[][] accountDetails() {
-		String[][] data = { { "38911", "Savings", "10000" } };
+	public static Object[][] accountDetails() throws IOException {
+
+		Object[][] data = ExcelUtils.getData("addAccount");
+		// String[][] data = { { "38911", "Savings", "10000" } };
 		return data;
-		// custid-91034
+
 	}
 
 	@AfterClass
 	public void dismental() {
-		base.teardown();
+		teardown();
 	}
 
 }
