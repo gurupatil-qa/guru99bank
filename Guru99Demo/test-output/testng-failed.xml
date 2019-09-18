@@ -1,32 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [ParallelTestSuite]" parallel="classes">
-  <listeners>
-    <listener class-name="resources.Listeners"/>
-    <listener class-name="resources.AnnontaionTransformer"/>
-  </listeners>
-  <test thread-count="2" name="parallelTest(failed)" parallel="classes">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.guru99bank.web.ChangePasswordPageTest">
+      <class name="com.guru99bank.web.DeleteAccountPageTest">
         <methods>
-          <include name="verifyUpdatePassword"/>
+          <include name="verifyDeleteAccount" invocation-numbers="0"/>
+          <include name="dismental"/>
+          <include name="verifyDeleteAccountDoesNotExistPopUp" invocation-numbers="0"/>
           <include name="launch"/>
-          <include name="dismental"/>
         </methods>
-      </class> <!-- com.guru99bank.web.ChangePasswordPageTest -->
-      <class name="com.guru99bank.web.LoginPageTest">
-        <methods>
-          <include name="validateUserIDRequiredMessage"/>
-          <include name="validatePasswordRequiredMessage"/>
-          <include name="verifyValidLogin"/>
-          <include name="verifyInvalidLogin" invocation-numbers="0 0 0"/>
-          <include name="dismental"/>
-          <include name="validateResetBtn"/>
-          <include name="verifNullValueLogin"/>
-          <include name="verifyLogout"/>
-          <include name="Launch"/>
-        </methods>
-      </class> <!-- com.guru99bank.web.LoginPageTest -->
+      </class> <!-- com.guru99bank.web.DeleteAccountPageTest -->
     </classes>
-  </test> <!-- parallelTest(failed) -->
-</suite> <!-- Failed suite [ParallelTestSuite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
