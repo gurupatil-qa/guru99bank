@@ -1,6 +1,7 @@
 package resources;
 
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -14,13 +15,17 @@ import org.testng.Reporter;
 
 public class ExcelUtils {
 
-	public static Sheet wSheet = null;
-	public static DataFormatter dataFormatter = new DataFormatter();
+	private static Sheet wSheet = null;
+	private static Workbook myworkbook = null;
+	private static FileInputStream fis;
+	private static String filepath = ".\\testdata\\demodata.xlsx";
+	private static DataFormatter dataFormatter = new DataFormatter();
 
 	public static void main(String[] args) {
 
 		try {
-			getData("login");
+			// getData("login");
+			setData("delete", 1, 1, "12345");
 
 		} catch (IOException e) {
 
@@ -29,12 +34,10 @@ public class ExcelUtils {
 
 	}
 
-	public static Object[][] getData(String sheetName) throws IOException {
+	private static void getsheet(String sheetName) throws IOException {
 
-		Object[][] userArray = null; // Array Declaration
-		Workbook myworkbook = null;
-		String filepath = ".\\testdata\\demodata.xlsx";
-		FileInputStream fis = new FileInputStream(filepath);
+		
+		fis = new FileInputStream(filepath);
 		String fileExtension = filepath.substring(filepath.indexOf(".", 2));// Get File extension
 
 		if (fileExtension.equals(".xlsx")) {
@@ -55,6 +58,14 @@ public class ExcelUtils {
 
 			Reporter.log("Provide valid shet name...");
 		}
+
+	}
+
+	public static Object[][] getData(String sheetName) throws IOException {
+
+		Object[][] userArray = null; // Array Declaration
+
+		getsheet(sheetName);
 
 		int rowCount = wSheet.getLastRowNum(); // Row count starts from 0th index, if 5 rows then return 4 rows
 
@@ -89,10 +100,23 @@ public class ExcelUtils {
 
 			ci++;
 		}
-		myworkbook.close();
+		fis.close();
 
 		return userArray;
 
+	}
+
+	public static void setData(String sheetName, int rowNum, int colNum, String value) throws IOException {
+		
+		getsheet(sheetName);
+		Row row = wSheet.getRow(rowNum);
+		Cell cell = row.createCell(colNum);
+		cell.setCellValue(value);
+		fis.close();
+		FileOutputStream fout = new FileOutputStream(filepath);
+		myworkbook.write(fout);
+        fout.close();
+	
 	}
 
 	public static String getCellData(int rownum, int colnum) {
