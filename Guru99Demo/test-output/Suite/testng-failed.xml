@@ -3,12 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
   <listeners>
     <listener class-name="resources.Listeners"/>
+    <listener class-name="resources.ExtentReporter"/>
     <listener class-name="resources.AnnontaionTransformer"/>
   </listeners>
   <test thread-count="5" name="Smoke(failed)">
     <classes>
       <class name="com.guru99bank.web.ChangePasswordPageTest">
         <methods>
+          <include name="clearFileds"/>
           <include name="verifyUpdatePassword"/>
           <include name="launch"/>
           <include name="dismental"/>

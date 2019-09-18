@@ -9,6 +9,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import resources.base;
@@ -22,10 +23,17 @@ public class ChangePasswordPageTest extends base {
 
 	@BeforeClass
 	public void launch() throws IOException {
-		driver=appLogin();
+		driver = appLogin();
 		changesPasswordPage = new ChangePasswordPage(driver);
 		managerHomePage = new ManagerHomePage(driver);
 		managerHomePage.changePasswordLink().click();
+	}
+
+	@BeforeMethod
+	public void clearFileds() {
+		changesPasswordPage.oldPassword().clear();
+		changesPasswordPage.newPassword().clear();
+		changesPasswordPage.confirmPassword().clear();
 	}
 
 	@Test(priority = 1)
@@ -42,7 +50,7 @@ public class ChangePasswordPageTest extends base {
 
 	}
 
-	@Test(priority = 2) //Test case failure to check retry logic and screenshot.
+	@Test(priority = 2) // Test case failure to check retry logic and screenshot.
 	public void verifyUpdatePassword() {
 		changesPasswordPage.oldPassword().sendKeys(prop.getProperty("mgrPwd"));
 		changesPasswordPage.newPassword().sendKeys(prop.getProperty("mgrPwd"));
@@ -50,8 +58,8 @@ public class ChangePasswordPageTest extends base {
 		changesPasswordPage.submit().click();
 		String actual = getAlert().getText();
 		getAlert().accept();
-		Assert.assertEquals(actual,"Password is Changed");
-		
+		Assert.assertEquals(actual, "Password is Changed");
+
 		log.info("Test Passed :: Verified update password");
 		Reporter.log("Test Passed :: Verified update password");
 

@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <listeners>
+    <listener class-name="resources.Listeners"/>
+    <listener class-name="resources.ExtentReporter"/>
+    <listener class-name="resources.AnnontaionTransformer"/>
+  </listeners>
+  <test thread-count="5" name="Smoke(failed)">
     <classes>
-      <class name="com.guru99bank.web.DeleteAccountPageTest">
+      <class name="com.guru99bank.web.ChangePasswordPageTest">
         <methods>
-          <include name="verifyDeleteAccount" invocation-numbers="0"/>
-          <include name="dismental"/>
-          <include name="verifyDeleteAccountDoesNotExistPopUp" invocation-numbers="0"/>
+          <include name="clearFileds"/>
+          <include name="verifyUpdatePassword"/>
           <include name="launch"/>
+          <include name="dismental"/>
         </methods>
-      </class> <!-- com.guru99bank.web.DeleteAccountPageTest -->
+      </class> <!-- com.guru99bank.web.ChangePasswordPageTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- Smoke(failed) -->
+</suite> <!-- Failed suite [Suite] -->

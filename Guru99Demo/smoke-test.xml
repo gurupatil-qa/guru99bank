@@ -3,6 +3,7 @@
 <suite name="Suite">
 	<listeners>
 		<listener class-name="resources.Listeners" />
+		<listener class-name="resources.ExtentReporter" />
 		<listener class-name="resources.AnnontaionTransformer" />
 	</listeners>
 	<test name="Smoke">
