@@ -3,11 +3,11 @@
 <suite name="Suite">
 	<listeners>
 		<listener class-name="resources.Listeners" />
-		<listener class-name="resources.RetryAnalyzer" />
+		<listener class-name="resources.AnnontaionTransformer" />
 	</listeners>
 	<test name="Smoke">
 		<classes>
-			<class name="com.guru99bank.web.LoginPageTest" />
+			<class name="com.guru99bank.web.ChangePasswordPageTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

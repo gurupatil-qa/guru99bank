@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="ParallelTestSuite" thread-count="4" parallel="tests">
+<suite name="ParallelTestSuite" thread-count="2" parallel="classes">
 	<listeners>
 		<listener class-name="resources.Listeners" />
+		<listener class-name="resources.AnnontaionTransformer" />
 	</listeners>
 	<test name="parallelTest">
 		<classes>
 			<class name="com.guru99bank.web.LoginPageTest" />
+			<class name="com.guru99bank.web.ChangePasswordPageTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->
+

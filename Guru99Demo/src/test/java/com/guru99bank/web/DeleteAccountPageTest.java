@@ -28,7 +28,7 @@ public class DeleteAccountPageTest extends base{
 
 	@BeforeClass
 	public void launch() throws IOException {
-		driver = setup();
+		driver = appLogin();
 		ManagerHomePage = new ManagerHomePage(driver);
 		ManagerHomePage.deleteAccountLink().click();
 		DeleteAccountPage = new DeleteAccountPage(driver);

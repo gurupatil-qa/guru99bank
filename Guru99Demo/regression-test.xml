@@ -3,15 +3,15 @@
 <suite name="Suite">
 	<listeners>
 		<listener class-name="resources.Listeners" />
-		<listener class-name="resources.RetryAnalyzer" />
+		<listener class-name="resources.AnnontaionTransformer" />
 	</listeners>
 	<test name="Regression">
 		<classes>
 			<class name="com.guru99bank.web.LoginPageTest" />
-			<class name="com.guru99bank.web.ChangePasswordPageTest" />
 			<class name="com.guru99bank.web.AddCustomerPageTest"/>
 			<class name="com.guru99bank.web.AddAccountPageTest"/>
 			<class name="com.guru99bank.web.DeleteAccountPageTest"/>
+			<class name="com.guru99bank.web.ChangePasswordPageTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

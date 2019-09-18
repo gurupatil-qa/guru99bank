@@ -25,21 +25,20 @@ import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
-import org.testng.Reporter;
 
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.guru99bank.web.LoginPage;
 
 public class base {
 
-	public WebDriver driver;
-	public Properties prop;
+	public static WebDriver driver;
+	public static Properties prop;
 	public LoginPage loginPage;
-	public Logger log = LogManager.getLogger(base.class);
+	public static Logger log = LogManager.getLogger(base.class);
 	public Calendar calender;
 	public SimpleDateFormat sdf;
 
-	public WebDriver initializeDriver() throws IOException {
+	public static WebDriver initializeDriver() throws IOException {
 		prop = new Properties();
 		FileInputStream fis = new FileInputStream(".\\globalconfig\\globaldata.properties");
 
@@ -63,8 +62,8 @@ public class base {
 			//
 
 		} else if (browserName.equals("headless")) {
-			driver = new HtmlUnitDriver(BrowserVersion.CHROME,true);
-			
+			driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+
 		} else {
 
 			log.error("Please provide valid browser name (chrome | firefox | edge | safari | headless)");
@@ -77,20 +76,15 @@ public class base {
 		return driver;
 	}
 
-	public WebDriver setup() throws IOException {
+	public WebDriver appLogin() throws IOException {
 		driver = initializeDriver();
 		driver.get(prop.getProperty("baseurl"));
-		log.info("------------------------------------------------------------------------------------");
-		log.info("Browser initialized");
-		Reporter.log("Browser initialized and rediredcted to page successfully");
 		loginPage = new LoginPage(driver);
 		loginPage.userID().sendKeys(prop.getProperty("mgrID"));
 		log.info("UserID entered");
 		loginPage.password().sendKeys(prop.getProperty("mgrPwd"));
 		log.info("Password entered");
 		loginPage.loginBtn().click();
-		log.info("Clicked on login button");
-		Reporter.log("Browser initialized and rediredcted to page successfully");
 		return driver;
 	}
 
@@ -107,7 +101,7 @@ public class base {
 
 		// convert driver object to TakesScreenshot and use getScreenshotAs method to
 		// create image
-		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 
 		// Set location to save file
 		File dst = new File(".\\screenshots\\" + result + "_" + current.format(format) + "_screenshot.png");
@@ -135,9 +129,8 @@ public class base {
 		}
 
 	}
-	
-	public String getTitle()
-	{
+
+	public String getTitle() {
 		return driver.getTitle();
 	}
 }
