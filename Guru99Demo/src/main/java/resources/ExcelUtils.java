@@ -24,8 +24,8 @@ public class ExcelUtils {
 	public static void main(String[] args) {
 
 		try {
-			// getData("login");
-			setData("delete", 1, 1, "12345");
+			getData("delete");
+			//setData("delete", 1, 1, "12345");
 
 		} catch (IOException e) {
 

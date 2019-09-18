@@ -34,7 +34,7 @@ public class AddCustomerPageTest extends base {
 
 	@Test(dataProvider = "customerDetails", priority = 1)
 	public void verifyAddNewCustomer(String cname, String gender, String dob, String address, String city, String state,
-			String pin, String mobileNo, String emailID, String pwd) {
+			String pin, String mobileNo, String emailID, String pwd) throws IOException {
 		AddCustomerPage = new AddCustomerPage(driver);
 		AddCustomerPage.customerName().sendKeys(cname);
 		
@@ -60,6 +60,9 @@ public class AddCustomerPageTest extends base {
 		Assert.assertEquals(CustomerRegPage.getSuccessMsg(), "Customer Registered Successfully!!!");
 
 		customerID = CustomerRegPage.CustomerID().getText();
+		ExcelUtils.setData("addAccount", 1, 1, customerID);
+		ExcelUtils.setData("delete", 1, 1, customerID);
+		
 		log.info("Test Passed :: Customer ID " + customerID);
 		Reporter.log("Test Passed :: Customer ID " + customerID);
 		Reporter.log("Test Passed :: Customer Registered Successfully");

@@ -1,11 +1,9 @@
 package com.guru99bank.web;
 
 import java.io.IOException;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.UnhandledAlertException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -18,12 +16,11 @@ import org.testng.annotations.Test;
 import resources.ExcelUtils;
 import resources.base;
 
-public class DeleteAccountPageTest extends base{
+public class DeleteAccountPageTest extends base {
 
 	public WebDriver driver;
 	public ManagerHomePage ManagerHomePage;
 	public DeleteAccountPage DeleteAccountPage;
-	public Alert alert;
 	public Logger log = LogManager.getLogger(DeleteAccountPageTest.class);
 
 	@BeforeClass
@@ -31,97 +28,57 @@ public class DeleteAccountPageTest extends base{
 		driver = appLogin();
 		ManagerHomePage = new ManagerHomePage(driver);
 		ManagerHomePage.deleteAccountLink().click();
+		log.info("Navigated to Delete Account Page");
 		DeleteAccountPage = new DeleteAccountPage(driver);
 	}
 
-	@BeforeMethod
-	public void clickOnDelete() {	
+	@Test(dataProvider = "accountNo")
+	public void verifyDeleteAccountPopUP(String custid, String accountNo) {
 		DeleteAccountPage.accouuntNo().clear();
-		DeleteAccountPage.accouuntNo().sendKeys("66932");
+		DeleteAccountPage.accouuntNo().sendKeys(accountNo);
 		DeleteAccountPage.submitBtn().click();
-		log.info("Navigated to Delete Account Page");
+
+		String actualMsg = getAlert().getText();
+		Assert.assertEquals(actualMsg, "Do you really want to delete this Account?");
+		log.info("Test Passed : Delete this account pop is shown");
+		Reporter.log("Test Passed : Delete this account pop is shown");
+		getAlert().dismiss();
 	}
 
-	@Test
-	public void verifyDeleteAccountPopUP() {
-		try {
-			alert = getAlert();
-			String actualMsg = alert.getText();
-			Assert.assertEquals(actualMsg, "Do you really want to delete this Account?");
-			log.info("Test Passed : Delete this account pop is shown");
-			Reporter.log("Test Passed : Delete this account pop is shown");
-			alert.dismiss();
-		} catch (NoAlertPresentException e) {
-			log.info("Test Failed : " + e.toString());
-			Reporter.log("Test Passed : " + e.toString());
-		} catch (UnhandledAlertException e) {
-			log.info("Test Failed : " + e.getMessage());
-			Reporter.log("Test Passed : " + e.getMessage());
-		}
-	}
-
-	@Test(priority = 1)
-	public void verifyDeleteAccount() {
-		alert.accept();
-		try {
-			alert = getAlert();
-			String actualMsg = alert.getText();
-			Assert.assertEquals(actualMsg, "Account Deleted Sucessfully");
-			log.info("Test Passed : Account Deleted Sucessfully");
-			Reporter.log("Test Passed : Account Deleted Sucessfully");
-			alert.accept();
-			ManagerHomePage.deleteAccountLink().click();
-		} catch (NoAlertPresentException e) {
-			log.info("Test Failed : " + e.getMessage());
-			Reporter.log("Test Passed : " + e.getMessage());
-		} catch (UnhandledAlertException e) {
-			log.info("Test Failed : " + e.getMessage());
-			Reporter.log("Test Passed : " + e.getMessage());
-		}
-	}
-
-	@Test(priority = 2)
-	public void verifyDeleteAccountDoesNotExistPopUp() {
-		alert.accept();
-		try {
-			alert = getAlert();
-			String actualMsg = alert.getText();
-			Assert.assertEquals(actualMsg, "Account does not exist");
-			log.info("Test Passed : Account does not exist pop is shown");
-			Reporter.log("Test Passed : Account does not exist pop is shown");
-			alert.accept();
-		} catch (NoAlertPresentException e) {
-			log.info("Test Failed : " + e.getMessage());
-			Reporter.log("Test Passed : " + e.getMessage());
-		} catch (UnhandledAlertException e) {
-			log.info("Test Failed : " + e.getMessage());
-			Reporter.log("Test Passed : " + e.getMessage());
-		}
-	}
-
-	@Test(enabled = false)
-	public void verifyDeleteAccountUnauthorizedPopUp() {
-		try {
-			alert = getAlert();
-			String actualMsg = alert.getText();
-			Assert.assertEquals(actualMsg, "You are not authorize to delete this Account!!");
-			log.info("Test Passed : Not authorize to delete this account pop is shown");
-			Reporter.log("Test Passed : Not authorize to delete this account pop is shown");
-		} catch (NoAlertPresentException e) {
-			log.info("Test Failed : " + e.toString());
-			Reporter.log("Test Failed : " + e.toString());
-		} catch (UnhandledAlertException e) {
-			log.info("Test Failed : " + e.getMessage());
-			Reporter.log("Test Passed : " + e.getMessage());
-		}
-	}
-	
-	@DataProvider(name="accountNo")
-	public String getAccountNo() throws IOException
-	{
-		ExcelUtils.getData("Delete");
-		return null;
+	@Test(priority = 1, dataProvider ="accountNo")
+	public void verifyDeleteAccount(String custid, String accountNo) {
+		DeleteAccountPage.accouuntNo().clear();
+		DeleteAccountPage.accouuntNo().sendKeys(accountNo);
+		DeleteAccountPage.submitBtn().click();
 		
+		getAlert().accept();
+		Assert.assertEquals(getAlert().getText(), "Account Deleted Sucessfully");
+		log.info("Test Passed : Account Deleted Sucessfully");
+		Reporter.log("Test Passed : Account Deleted Sucessfully");
+		getAlert().accept();
+		ManagerHomePage.deleteAccountLink().click();
+
+	}
+
+	@Test(priority = 2, dataProvider="accountNo")
+	public void verifyDeleteAccountDoesNotExistPopUp(String custid, String accountNo) {
+		DeleteAccountPage.accouuntNo().clear();
+		DeleteAccountPage.accouuntNo().sendKeys(accountNo);
+		DeleteAccountPage.submitBtn().click();
+		
+		getAlert().accept();
+		Assert.assertEquals(getAlert().getText(), "Account does not exist");
+		log.info("Test Passed : Account does not exist pop is shown");
+		Reporter.log("Test Passed : Account does not exist pop is shown");
+		getAlert().accept();
+
+	}
+
+	@DataProvider(name = "accountNo")
+	public Object[][] getAccountNo() throws IOException {
+		Object[][] data = ExcelUtils.getData("Delete");
+		return data;
+
 	}
 
 	@AfterClass

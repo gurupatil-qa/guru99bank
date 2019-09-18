@@ -32,7 +32,7 @@ public class AddAccountPageTest extends base {
 	}
 
 	@Test(dataProvider = "accountDetails")
-	public void verifyAddNewAccount(String custid, String actType, String depositAmt) {
+	public void verifyAddNewAccount(String custid, String actType, String depositAmt) throws IOException {
 		AddAccountPage = new AddAccountPage(driver);
 		AddAccountPage.customerID().sendKeys(custid);
 		try {
@@ -46,6 +46,7 @@ public class AddAccountPageTest extends base {
 
 		AccountGeneratedPage = new AccountGeneratedPage(driver);
 		Assert.assertEquals(AccountGeneratedPage.getAccountSuccessMsg(), "Account Generated Successfully!!!");
+		ExcelUtils.setData("delete", 1, 2, AccountGeneratedPage.accountID().getText());
 
 	}
 
