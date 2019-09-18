@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [ParallelTestSuite]" parallel="classes">
+  <listeners>
+    <listener class-name="resources.Listeners"/>
+    <listener class-name="resources.AnnontaionTransformer"/>
+  </listeners>
+  <test thread-count="2" name="parallelTest(failed)" parallel="classes">
+    <classes>
+      <class name="com.guru99bank.web.ChangePasswordPageTest">
+        <methods>
+          <include name="verifyUpdatePassword"/>
+          <include name="launch"/>
+          <include name="dismental"/>
+        </methods>
+      </class> <!-- com.guru99bank.web.ChangePasswordPageTest -->
+      <class name="com.guru99bank.web.LoginPageTest">
+        <methods>
+          <include name="validateUserIDRequiredMessage"/>
+          <include name="validatePasswordRequiredMessage"/>
+          <include name="verifyValidLogin"/>
+          <include name="verifyInvalidLogin" invocation-numbers="0 0 0"/>
+          <include name="dismental"/>
+          <include name="validateResetBtn"/>
+          <include name="verifNullValueLogin"/>
+          <include name="verifyLogout"/>
+          <include name="Launch"/>
+        </methods>
+      </class> <!-- com.guru99bank.web.LoginPageTest -->
+    </classes>
+  </test> <!-- parallelTest(failed) -->
+</suite> <!-- Failed suite [ParallelTestSuite] -->
