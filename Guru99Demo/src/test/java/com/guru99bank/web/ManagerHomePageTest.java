@@ -22,13 +22,13 @@ public class ManagerHomePageTest extends base{
 	}
 	
 	
-	@Test
+	@Test(priority=1)
 	public void verifyTitle()
 	{
 		Assert.assertEquals(getTitle(), "Guru99 Bank Manager HomePage");
 	}
 	
-	@Test
+	@Test(priority=2)
 	public void verifyWelcomeText()
 	{
 		HP = new ManagerHomePage(driver);

@@ -1,0 +1,44 @@
+00:06:00.772 [main] INFO  com.guru99bank.web.LoginPageTest - Browser initialized
+00:06:02.273 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:06:02.338 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:06:02.857 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:06:02.870 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:06:05.571 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:06:05.692 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:06:06.283 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:06:06.299 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:06:08.527 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:06:08.647 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:06:09.213 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:06:09.227 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:06:11.347 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:06:11.571 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:06:12.205 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:06:12.211 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:06:18.203 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:06:18.400 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:06:20.920 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:06:21.098 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified Login for valid user/password
+00:06:23.889 [main] INFO  resources.base - Browser instance closed
+00:17:10.510 [main] INFO  com.guru99bank.web.LoginPageTest - Browser initialized
+00:17:12.457 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:17:12.561 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:17:13.394 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:17:13.401 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:17:15.998 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:17:16.050 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:17:16.550 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:17:16.556 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:17:18.907 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:17:18.964 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:17:19.511 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:17:19.527 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:17:22.137 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:17:22.299 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:17:22.958 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:17:22.971 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+00:17:28.169 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+00:17:28.301 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+00:17:30.341 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+00:17:30.467 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified Login for valid user/password
+00:17:32.350 [main] INFO  resources.base - Browser instance closed

@@ -59,7 +59,6 @@ public class ChangePasswordPageTest extends base {
 		String actual = getAlert().getText();
 		getAlert().accept();
 		Assert.assertEquals(actual, "Password is Changed");
-
 		log.info("Test Passed :: Verified update password");
 		Reporter.log("Test Passed :: Verified update password");
 

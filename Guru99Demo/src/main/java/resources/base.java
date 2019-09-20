@@ -64,7 +64,7 @@ public class base {
 			//
 
 		} else if (browserName.equals("headless")) {
-			driver = new HtmlUnitDriver(BrowserVersion.CHROME, true);
+			driver = new HtmlUnitDriver(true);
 
 		} else {
 
