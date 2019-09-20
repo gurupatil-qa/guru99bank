@@ -7,9 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -18,12 +17,12 @@ import resources.base;
 
 public class DeleteAccountPageTest extends base {
 
-	public WebDriver driver;
-	public ManagerHomePage ManagerHomePage;
-	public DeleteAccountPage DeleteAccountPage;
-	public Logger log = LogManager.getLogger(DeleteAccountPageTest.class);
+	private WebDriver driver;
+	private ManagerHomePage ManagerHomePage;
+	private DeleteAccountPage DeleteAccountPage;
+	private Logger log = LogManager.getLogger(DeleteAccountPageTest.class);
 
-	@BeforeClass
+	@BeforeTest
 	public void launch() throws IOException {
 		driver = appLogin();
 		ManagerHomePage = new ManagerHomePage(driver);
@@ -37,7 +36,6 @@ public class DeleteAccountPageTest extends base {
 		DeleteAccountPage.accouuntNo().clear();
 		DeleteAccountPage.accouuntNo().sendKeys(accountNo);
 		DeleteAccountPage.submitBtn().click();
-
 		String actualMsg = getAlert().getText();
 		Assert.assertEquals(actualMsg, "Do you really want to delete this Account?");
 		log.info("Test Passed : Delete this account pop is shown");
@@ -45,12 +43,11 @@ public class DeleteAccountPageTest extends base {
 		getAlert().dismiss();
 	}
 
-	@Test(priority = 1, dataProvider ="accountNo")
+	@Test(priority = 1, dataProvider = "accountNo")
 	public void verifyDeleteAccount(String custid, String accountNo) {
 		DeleteAccountPage.accouuntNo().clear();
 		DeleteAccountPage.accouuntNo().sendKeys(accountNo);
 		DeleteAccountPage.submitBtn().click();
-		
 		getAlert().accept();
 		Assert.assertEquals(getAlert().getText(), "Account Deleted Sucessfully");
 		log.info("Test Passed : Account Deleted Sucessfully");
@@ -60,12 +57,11 @@ public class DeleteAccountPageTest extends base {
 
 	}
 
-	@Test(priority = 2, dataProvider="accountNo")
+	@Test(priority = 2, dataProvider = "accountNo")
 	public void verifyDeleteAccountDoesNotExistPopUp(String custid, String accountNo) {
 		DeleteAccountPage.accouuntNo().clear();
 		DeleteAccountPage.accouuntNo().sendKeys(accountNo);
 		DeleteAccountPage.submitBtn().click();
-		
 		getAlert().accept();
 		Assert.assertEquals(getAlert().getText(), "Account does not exist");
 		log.info("Test Passed : Account does not exist pop is shown");
@@ -81,7 +77,7 @@ public class DeleteAccountPageTest extends base {
 
 	}
 
-	@AfterClass
+	@AfterTest
 	public void dismental() {
 		teardown();
 	}

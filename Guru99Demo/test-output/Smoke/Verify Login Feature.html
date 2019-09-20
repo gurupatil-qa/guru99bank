@@ -1,0 +1,164 @@
+<html>
+<head>
+<title>TestNG:  Verify Login Feature</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Verify Login Feature</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>10/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Fri Sep 20 18:08:28 IST 2019</td>
+</tr>
+<tr><td>Total time:</td><td>37 seconds (37765 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.validatePasswordRequiredMessage()'><b>validatePasswordRequiredMessage</b><br>Test class: com.guru99bank.web.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.validateResetBtn()'><b>validateResetBtn</b><br>Test class: com.guru99bank.web.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.validateUserIDRequiredMessage()'><b>validateUserIDRequiredMessage</b><br>Test class: com.guru99bank.web.LoginPageTest</td>
+<td></td>
+<td>0</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifNullValueLogin()'><b>verifNullValueLogin</b><br>Test class: com.guru99bank.web.LoginPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: com.guru99bank.web.LoginPageTest<br>Parameters: abc, ubAtYrE<br/>
+<a href="#Output-1992604329" onClick='toggleBox("Output-1992604329", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1992604329" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1992604329">
+Test Passed :: Verified login for invalid user/password<br/>
+</div>
+</td>
+<td></td>
+<td>1</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: com.guru99bank.web.LoginPageTest<br>Parameters: mngr212524, abc<br/>
+<a href="#Output-37443421" onClick='toggleBox("Output-37443421", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-37443421" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-37443421">
+Test Passed :: Verified login for invalid user/password<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: com.guru99bank.web.LoginPageTest<br>Parameters: abc, abc<br/>
+<a href="#Output-1868910470" onClick='toggleBox("Output-1868910470", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1868910470" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1868910470">
+Test Passed :: Verified login for invalid user/password<br/>
+</div>
+</td>
+<td></td>
+<td>3</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifyInvalidLogin()'><b>verifyInvalidLogin</b><br>Test class: com.guru99bank.web.LoginPageTest<br>Parameters: $$$$, $$$$<br/>
+<a href="#Output-1628499111" onClick='toggleBox("Output-1628499111", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1628499111" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1628499111">
+Test Passed :: Verified login for invalid user/password<br/>
+</div>
+</td>
+<td></td>
+<td>4</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifyLogout()'><b>verifyLogout</b><br>Test class: com.guru99bank.web.LoginPageTest</td>
+<td></td>
+<td>2</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+<tr>
+<td title='com.guru99bank.web.LoginPageTest.verifyValidLogin()'><b>verifyValidLogin</b><br>Test class: com.guru99bank.web.LoginPageTest<br/>
+<a href="#Output-938832654" onClick='toggleBox("Output-938832654", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-938832654" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-938832654">
+Test Passed :: Verified Login for valid user/password<br/>
+</div>
+</td>
+<td></td>
+<td>5</td>
+<td>com.guru99bank.web.LoginPageTest@4e50c791</td></tr>
+</table><p>
+</body>
+</html>

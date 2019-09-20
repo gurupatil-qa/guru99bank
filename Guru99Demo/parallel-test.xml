@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Smoke">
+<suite name="Smoke" parallel="tests" thread-count="2">
 	<listeners>
 		<listener class-name="resources.Listeners" />
 		<listener class-name="resources.ExtentReporter" />
@@ -9,6 +9,11 @@
 	<test name="Verify Login Feature">
 		<classes>
 			<class name="com.guru99bank.web.LoginPageTest" />
+		</classes>
+	</test>
+	<test name="Verify Manager Homepage">
+		<classes>
+			<class name="com.guru99bank.web.ManagerHomePageTest" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

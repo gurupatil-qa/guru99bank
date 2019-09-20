@@ -69,7 +69,7 @@ public class ExcelUtils {
 
 		int rowCount = wSheet.getLastRowNum(); // Row count starts from 0th index, if 5 rows then return 4 rows
 
-		System.out.println("Row :" + rowCount);
+		//System.out.println("Row :" + rowCount);
 
 		int ci = 0;
 
@@ -78,7 +78,7 @@ public class ExcelUtils {
 		int colCount = row.getLastCellNum(); // Get first row cell/column count, count starts from 1st index, if 3 cells
 												// then return 3 cells
 
-		System.out.println("Column :" + colCount);
+		//System.out.println("Column :" + colCount);
 
 		userArray = new String[rowCount][colCount - 1]; // Instantiating/initializing array
 
@@ -93,7 +93,7 @@ public class ExcelUtils {
 				if (getCellData(i, j) != null && getCellData(i, j).length() != 0)// Check for NULL values
 				{
 					userArray[ci][cj] = getCellData(i, j); // Add excel data in array
-					System.out.println(userArray[ci][cj]);
+					//System.out.println(userArray[ci][cj]);
 				}
 				cj++;
 			}

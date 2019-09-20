@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Regression">
 	<listeners>
 		<listener class-name="resources.Listeners" />
 		<listener class-name="resources.ExtentReporter" />
 		<listener class-name="resources.AnnontaionTransformer" />
 	</listeners>
-	<test name="Regression">
+	<test name="Verify Login Feature">
 		<classes>
 			<class name="com.guru99bank.web.LoginPageTest" />
+		</classes>
+	</test>
+	<test name="Verify Add Customer Feature">
+		<classes>
 			<class name="com.guru99bank.web.AddCustomerPageTest" />
+		</classes>
+	</test>
+	<test name="Verify Add Account Feature">
+		<classes>
 			<class name="com.guru99bank.web.AddAccountPageTest" />
+		</classes>
+	</test>
+	<test name="Verify Delete Account Feature">
+		<classes>
 			<class name="com.guru99bank.web.DeleteAccountPageTest" />
+		</classes>
+	</test>
+	<test name="Verify Change Password Feature">
+		<classes>
 			<class name="com.guru99bank.web.ChangePasswordPageTest" />
 		</classes>
-	</test> <!-- Test -->
-</suite> <!-- Suite -->
+	</test>
+</suite>

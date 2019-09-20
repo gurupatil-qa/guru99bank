@@ -7,7 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class ManagerHomePage {
-	public WebDriver driver;
+	
+	WebDriver driver;
 
 	public ManagerHomePage(WebDriver driver) {
 		this.driver = driver;
@@ -81,12 +82,12 @@ public class ManagerHomePage {
 		return newCustomer;
 	}
 
-	public WebElement verifyWelcomeText() {
-		return welcomeText;
+	public String getWelcomeText() {
+		return welcomeText.getText();
 	}
 
-	public WebElement verifyUserID() {
-		return managerID;
+	public String getUserID() {
+		return managerID.getText();
 	}
 
 	public WebElement changePasswordLink() {

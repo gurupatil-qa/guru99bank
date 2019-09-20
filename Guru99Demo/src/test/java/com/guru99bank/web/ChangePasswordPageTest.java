@@ -7,21 +7,21 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import resources.base;
 
 public class ChangePasswordPageTest extends base {
 
-	public static WebDriver driver;
-	public static ChangePasswordPage changesPasswordPage;
-	public static ManagerHomePage managerHomePage;
-	public static Logger log = LogManager.getLogger(ChangePasswordPageTest.class);
+	private static WebDriver driver;
+	private static ChangePasswordPage changesPasswordPage;
+	private static ManagerHomePage managerHomePage;
+	private static Logger log = LogManager.getLogger(ChangePasswordPageTest.class);
 
-	@BeforeClass
+	@BeforeTest
 	public void launch() throws IOException {
 		driver = appLogin();
 		changesPasswordPage = new ChangePasswordPage(driver);
@@ -65,7 +65,7 @@ public class ChangePasswordPageTest extends base {
 
 	}
 
-	@AfterClass
+	@AfterTest
 	public void dismental() {
 		teardown();
 	}

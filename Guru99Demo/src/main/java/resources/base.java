@@ -31,18 +31,20 @@ import com.guru99bank.web.LoginPage;
 
 public class base {
 
-	public static WebDriver driver;
+	private WebDriver driver;
 	public static Properties prop;
-	public LoginPage loginPage;
-	public static Logger log = LogManager.getLogger(base.class);
-	public Calendar calender;
-	public SimpleDateFormat sdf;
+	private LoginPage loginPage;
+	private static Logger log = LogManager.getLogger(base.class);
+	private Calendar calender;
+	private SimpleDateFormat sdf;
 
-	public static WebDriver initializeDriver() throws IOException {
+	public WebDriver initializeDriver() throws IOException {
 		prop = new Properties();
 		FileInputStream fis = new FileInputStream(".\\globalconfig\\globaldata.properties");
 
 		prop.load(fis);
+		// String browserName = System.getProperty("browser");
+
 		String browserName = prop.getProperty("browser");
 
 		if (browserName.equals("chrome")) {
@@ -101,7 +103,7 @@ public class base {
 
 		// convert driver object to TakesScreenshot and use getScreenshotAs method to
 		// create image
-		File src = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File src = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 
 		// Set location to save file
 		File dst = new File(".\\screenshots\\" + result + "_" + current.format(format) + "_screenshot.png");

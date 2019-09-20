@@ -7,8 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -17,14 +17,14 @@ import resources.base;
 
 public class AddCustomerPageTest extends base {
 
-	public static WebDriver driver;
-	public static Logger log = LogManager.getLogger(AddCustomerPageTest.class);
-	public static String customerID;
-	public static ManagerHomePage ManagerHomePage;
-	public static AddCustomerPage AddCustomerPage;
-	public static CustomerRegPage CustomerRegPage;
+	private static WebDriver driver;
+	private static Logger log = LogManager.getLogger(AddCustomerPageTest.class);
+	private static String customerID;
+	private static ManagerHomePage ManagerHomePage;
+	private static AddCustomerPage AddCustomerPage;
+	private static CustomerRegPage CustomerRegPage;
 
-	@BeforeClass
+	@BeforeTest
 	public void launch() throws IOException {
 		driver = appLogin();
 		ManagerHomePage = new ManagerHomePage(driver);
@@ -81,7 +81,7 @@ public class AddCustomerPageTest extends base {
 		return data;
 	}
 
-	@AfterClass
+	@AfterTest
 	public void dismental() {
 		teardown();
 	}

@@ -5,12 +5,11 @@ import java.io.IOException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.Reporter;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,12 +18,12 @@ import resources.base;
 
 public class LoginPageTest extends base {
 
-	public static WebDriver driver;
-	public static LoginPage loginPage;
-	public static ManagerHomePage HP;
-	public static Logger log = LogManager.getLogger(LoginPageTest.class);
+	private static WebDriver driver;
+	private static LoginPage loginPage;
+	private static ManagerHomePage HP;
+	private static Logger log = LogManager.getLogger(LoginPageTest.class);
 
-	@BeforeClass
+	@BeforeTest
 	public void Launch() throws IOException {
 		driver = initializeDriver();
 		driver.get(prop.getProperty("baseurl"));
@@ -65,32 +64,19 @@ public class LoginPageTest extends base {
 		log.info("Password entered");
 		loginPage.loginBtn().click();
 		log.info("Clicked on login button");
+		Assert.assertEquals(getAlert().getText(), "User or Password is not valid");
+		log.info("Test Passed :: Verified login for invalid user/password");
+		Reporter.log("Test Passed :: Verified login for invalid user/password");
+		getAlert().accept();
 
-		try {
-			String alertTile = getAlert().getText();
-			Assert.assertEquals(alertTile, "User or Password is not valid");
-			log.info("Test Passed :: Verified login for invalid user/password");
-			Reporter.log("Test Passed :: Verified login for invalid user/password");
-			getAlert().accept();
-		} catch (NoAlertPresentException Ex) {
-
-			log.info("Test Failed :: invalid user/password");
-			Reporter.log("Test Failed :: invalid user/password");
-		}
 	}
 
 	@Test(priority = 5)
 	public void verifNullValueLogin() {
 		loginPage.loginBtn().click();
-		try {
-			String alertTile = getAlert().getText();
-			Assert.assertEquals(alertTile, "User or Password is not valid");
-			getAlert().accept();
-		} catch (NoAlertPresentException Ex) {
+		Assert.assertEquals(getAlert().getText(), "User or Password is not valid");
+		getAlert().accept();
 
-			log.info("Test Failed :: invalid user/password");
-			Reporter.log("Test Failed :: invalid user/password");
-		}
 	}
 
 	@Test(priority = 6)
@@ -103,8 +89,7 @@ public class LoginPageTest extends base {
 		loginPage.loginBtn().click();
 		log.info("Clicked on login button");
 		HP = new ManagerHomePage(driver);
-		String heading3 = HP.verifyUserID().getText();
-		Assert.assertEquals(heading3, "Manger Id : " + prop.getProperty("mgrID"));
+		Assert.assertEquals(HP.getUserID(), "Manger Id : " + prop.getProperty("mgrID"));
 		Reporter.log("Test Passed :: Verified Login for valid user/password");
 		log.info("Test Passed :: Verified Login for valid user/password");
 
@@ -131,7 +116,7 @@ public class LoginPageTest extends base {
 
 	}
 
-	@AfterClass
+	@AfterTest
 	public void dismental() {
 		teardown();
 	}
