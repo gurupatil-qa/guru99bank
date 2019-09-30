@@ -26,7 +26,6 @@ import org.openqa.selenium.logging.LogEntries;
 import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.guru99bank.web.LoginPage;
 
 public class base {
