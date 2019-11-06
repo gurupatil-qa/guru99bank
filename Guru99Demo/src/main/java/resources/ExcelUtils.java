@@ -21,22 +21,8 @@ public class ExcelUtils {
 	private static String filepath = ".\\testdata\\demodata.xlsx";
 	private static DataFormatter dataFormatter = new DataFormatter();
 
-	public static void main(String[] args) {
-
-		try {
-			getData("delete");
-			//setData("delete", 1, 1, "12345");
-
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-	}
-
 	private static void getsheet(String sheetName) throws IOException {
 
-		
 		fis = new FileInputStream(filepath);
 		String fileExtension = filepath.substring(filepath.indexOf(".", 2));// Get File extension
 
@@ -56,7 +42,7 @@ public class ExcelUtils {
 
 		} catch (NullPointerException e) {
 
-			Reporter.log("Provide valid shet name...");
+			Reporter.log("Provide valid sheet name...");
 		}
 
 	}
@@ -69,7 +55,7 @@ public class ExcelUtils {
 
 		int rowCount = wSheet.getLastRowNum(); // Row count starts from 0th index, if 5 rows then return 4 rows
 
-		//System.out.println("Row :" + rowCount);
+		// System.out.println("Row :" + rowCount);
 
 		int ci = 0;
 
@@ -78,7 +64,7 @@ public class ExcelUtils {
 		int colCount = row.getLastCellNum(); // Get first row cell/column count, count starts from 1st index, if 3 cells
 												// then return 3 cells
 
-		//System.out.println("Column :" + colCount);
+		// System.out.println("Column :" + colCount);
 
 		userArray = new String[rowCount][colCount - 1]; // Instantiating/initializing array
 
@@ -93,7 +79,7 @@ public class ExcelUtils {
 				if (getCellData(i, j) != null && getCellData(i, j).length() != 0)// Check for NULL values
 				{
 					userArray[ci][cj] = getCellData(i, j); // Add excel data in array
-					//System.out.println(userArray[ci][cj]);
+					// System.out.println(userArray[ci][cj]);
 				}
 				cj++;
 			}
@@ -107,7 +93,7 @@ public class ExcelUtils {
 	}
 
 	public static void setData(String sheetName, int rowNum, int colNum, String value) throws IOException {
-		
+
 		getsheet(sheetName);
 		Row row = wSheet.getRow(rowNum);
 		Cell cell = row.createCell(colNum);
@@ -115,8 +101,8 @@ public class ExcelUtils {
 		fis.close();
 		FileOutputStream fout = new FileOutputStream(filepath);
 		myworkbook.write(fout);
-        fout.close();
-	
+		fout.close();
+
 	}
 
 	public static String getCellData(int rownum, int colnum) {
