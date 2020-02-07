@@ -9,7 +9,7 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 
 public class Listeners extends base implements ITestListener {
-	
+
 	Logger log = LogManager.getLogger(Listeners.class);
 
 	public void onTestStart(ITestResult result) {
@@ -17,7 +17,6 @@ public class Listeners extends base implements ITestListener {
 	}
 
 	public void onTestSuccess(ITestResult result) {
-
 
 	}
 
@@ -31,7 +30,6 @@ public class Listeners extends base implements ITestListener {
 
 			log.error(e.toString());
 		}
-
 	}
 
 	public void onTestSkipped(ITestResult result) {
@@ -49,5 +47,4 @@ public class Listeners extends base implements ITestListener {
 	public void onFinish(ITestContext context) {
 
 	}
-
 }

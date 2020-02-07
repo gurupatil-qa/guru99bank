@@ -24,6 +24,7 @@ public class temp extends base{
 		driver.get(prop.getProperty("baseurl"));
 		log.info("Browser initialized");
 		Reporter.log("Browser initialized and rediredcted to page successfully");
+		
 
 	}
 	

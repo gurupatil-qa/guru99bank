@@ -3,13 +3,19 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.guru99bank.web.ManagerHomePageTest">
+      <class name="com.guru99bank.web.LoginPageTest">
         <methods>
-          <include name="dismetnal"/>
-          <include name="setup"/>
-          <include name="verifyTitle"/>
+          <include name="validateUserIDRequiredMessage"/>
+          <include name="validatePasswordRequiredMessage"/>
+          <include name="verifyValidLogin"/>
+          <include name="verifyInvalidLogin" invocation-numbers="0 1 2 3"/>
+          <include name="dismental"/>
+          <include name="validateResetBtn"/>
+          <include name="verifNullValueLogin"/>
+          <include name="verifyLogout"/>
+          <include name="Launch"/>
         </methods>
-      </class> <!-- com.guru99bank.web.ManagerHomePageTest -->
+      </class> <!-- com.guru99bank.web.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

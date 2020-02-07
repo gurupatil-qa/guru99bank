@@ -42,3 +42,26 @@
 00:17:30.341 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
 00:17:30.467 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified Login for valid user/password
 00:17:32.350 [main] INFO  resources.base - Browser instance closed
+23:28:56.121 [main] INFO  com.guru99bank.web.LoginPageTest - Browser initialized
+23:29:00.979 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+23:29:01.076 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+23:29:01.888 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+23:29:01.897 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+23:29:05.081 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+23:29:05.257 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+23:29:06.130 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+23:29:06.152 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+23:29:08.232 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+23:29:08.430 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+23:29:09.438 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+23:29:09.454 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+23:29:11.655 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+23:29:11.742 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+23:29:12.306 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+23:29:12.317 [main] INFO  com.guru99bank.web.LoginPageTest - Test Passed :: Verified login for invalid user/password
+23:29:17.454 [main] INFO  com.guru99bank.web.LoginPageTest - UserID entered
+23:29:17.547 [main] INFO  com.guru99bank.web.LoginPageTest - Password entered
+23:29:18.297 [main] INFO  com.guru99bank.web.LoginPageTest - Clicked on login button
+23:29:36.054 [main] INFO  resources.base - Browser instance closed
+23:55:32.930 [main] INFO  com.guru99bank.web.LoginPageTest - Browser initialized
+23:55:36.082 [main] INFO  resources.base - Browser instance closed
